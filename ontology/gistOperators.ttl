@@ -1,5 +1,5 @@
-@prefix : <https://ontologies.semanticarts.com/o/gistOperators#> .
-@prefix gist: <https://ontologies.semanticarts.com/gist/> .
+@prefix : <https://w3id.org/semanticarts/ns/ontology/operators/> .
+@prefix ops: <https://w3id.org/semanticarts/ns/ontology/operators/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -7,78 +7,78 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://ontologies.semanticarts.com/o/gistOperators>
+<https://w3id.org/semanticarts/ontology/operators/>
 	a owl:Ontology ;
 	skos:definition "Generic operators for specifying relationships, e.g. greater than."^^xsd:string ;
-	skos:prefLabel "gistOperators"^^xsd:string ;
-	gist:hasVersionNumber [
-		a gist:SemanticVersionNumber ;
-		gist:containedText "1.0.1"^^xsd:string ;
+	skos:prefLabel "Operators"^^xsd:string ;
+	ops:hasVersionNumber [
+		a ops:SemanticVersionNumber ;
+		ops:containedText "1.0.1"^^xsd:string ;
 	] ;
 	.
 
-gist:equalTo
+ops:equalTo
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf
-		gist:greaterOrEqualTo ,
-		gist:lessOrEqualTo
+		ops:greaterOrEqualTo ,
+		ops:lessOrEqualTo
 		;
 	skos:definition "This is the exact numeric value."^^xsd:string ;
 	skos:prefLabel "equal to"^^xsd:string ;
 	.
 
-gist:greaterOrEqualTo
+ops:greaterOrEqualTo
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:specifiedValue ;
+	rdfs:subPropertyOf ops:specifiedValue ;
 	skos:definition "The value is greater than or equal to a specified value."^^xsd:string ;
 	skos:prefLabel "greater or equal to"^^xsd:string ;
 	.
 
-gist:greaterThan
+ops:greaterThan
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:greaterOrEqualTo ;
+	rdfs:subPropertyOf ops:greaterOrEqualTo ;
 	skos:definition "The value is greater  than a specified value."^^xsd:string ;
 	skos:prefLabel "greater than"^^xsd:string ;
 	.
 
-gist:lessOrEqualTo
+ops:lessOrEqualTo
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:specifiedValue ;
+	rdfs:subPropertyOf ops:specifiedValue ;
 	skos:definition "The value is less  than or equal to a specified value."^^xsd:string ;
 	skos:prefLabel "less or equal to"^^xsd:string ;
 	.
 
-gist:lessThan
+ops:lessThan
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:lessOrEqualTo ;
+	rdfs:subPropertyOf ops:lessOrEqualTo ;
 	skos:definition "The value is less  than a specified value."^^xsd:string ;
 	skos:prefLabel "less than"^^xsd:string ;
 	.
 
-gist:specifiedValue
+ops:specifiedValue
 	a owl:ObjectProperty ;
-	skos:definition "Relates a specification (e.g. a VersionRangeSpec) to the value(s) a characteristic/parameter/variable may or must  have."^^xsd:string ;
+	skos:definition "Relates a specification (e.g. a VersionRangeSpec) to the value(s) a characteristic/parameter/variable may or must have."^^xsd:string ;
 	skos:prefLabel "specified value"^^xsd:string ;
 	.
 
-gist:targetValue
+ops:targetValue
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:specifiedValue ;
+	rdfs:subPropertyOf ops:specifiedValue ;
 	skos:definition "For when there is an ideal value in a range.  Specifeid with a variance, either a number or a percentage."^^xsd:string ;
 	skos:prefLabel "target value"^^xsd:string ;
 	.
 
-gist:varianceNumber
+ops:varianceNumber
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:specifiedValue ;
+	rdfs:subPropertyOf ops:specifiedValue ;
 	skos:definition "Specifies the variance around the target value as a number."^^xsd:string ;
 	skos:example "Target value 100 with .5 variance implies a range of 99.5 to 100.5."^^xsd:string ;
 	skos:prefLabel "variance number"^^xsd:string ;
 	.
 
-gist:variancePercentage
+ops:variancePercentage
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:specifiedValue ;
+	rdfs:subPropertyOf ops:specifiedValue ;
 	skos:definition "Specifies the variance around the target value as a percentage."^^xsd:string ;
 	skos:example "Target value 100 with 5% variance implies a range of 95 to 105."^^xsd:string ;
 	skos:prefLabel "variance percentage"^^xsd:string ;
