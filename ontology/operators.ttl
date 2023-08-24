@@ -11,10 +11,7 @@
 	a owl:Ontology ;
 	skos:definition "Generic operators for specifying relationships, e.g. greater than."^^xsd:string ;
 	skos:prefLabel "Operators"^^xsd:string ;
-	ops:hasVersionNumber [
-		a ops:SemanticVersionNumber ;
-		ops:containedText "1.0.1"^^xsd:string ;
-	] ;
+	ops:semanticVersionNumber "0.1.0"^^xsd:string ;
 	.
 
 ops:equalTo
@@ -53,6 +50,16 @@ ops:lessThan
 	rdfs:subPropertyOf ops:lessOrEqualTo ;
 	skos:definition "The value is less  than a specified value."^^xsd:string ;
 	skos:prefLabel "less than"^^xsd:string ;
+	.
+
+ops:semanticVersionNumber
+	a owl:DatatypeProperty ;
+	rdfs:domain rdfs:Resource ;
+	rdfs:range xsd:string ;
+	rdfs:seeAlso "https://semver.org/"^^xsd:anyURI ;
+	skos:definition "A semantic version number of the form n.n.n"^^xsd:string ;
+	skos:example "An ontology has semantic version number: 11.1.3"^^xsd:string ;
+	skos:prefLabel "semantic version number"^^xsd:string ;
 	.
 
 ops:specifiedValue
