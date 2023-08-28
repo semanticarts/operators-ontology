@@ -6,8 +6,9 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/semanticarts/ontology/operators/>
+<https://w3id.org/semanticarts/ontology/operators>
 	a owl:Ontology ;
+	owl:versionIRI <https://w3id.org/semanticarts/ontology/operators0.1.0> ;
 	skos:definition "This ontology is designed for use with specifications whereby the value for some characteristic must be in some range. Operators provided include equal to, greater than (or equal to), less than (or equal to). Also included is the ability to specify a target value with an absolute or percent variance. Two common use cases for these operators are: version dependencies and product specifications. For example one ontology might depend on the version number of another ontology being in a certain range. A product specification may require that the concentration of a toxin must be less than so many parts per billion or that the battery life is greater than so many hours."^^xsd:string ;
 	skos:prefLabel "Operators"^^xsd:string ;
 	.
