@@ -10,22 +10,6 @@
 	a owl:Ontology ;
 	skos:definition "This ontology is designed for use with specifications whereby the value for some characteristic must be in some range. Operators provided include equal to, greater than (or equal to), less than (or equal to). Also included is the ability to specify a target value with an absolute or percent variance. Two common use cases for these operators are: version dependencies and product specifications. For example one ontology might depend on the version number of another ontology being in a certain range. A product specification may require that the concentration of a toxin must be less than so many parts per billion or that the battery life is greater than so many hours."^^xsd:string ;
 	skos:prefLabel "Operators"^^xsd:string ;
-	ops:hasVersionNumber [
-		a ops:SemanticVersionNumber ;
-		ops:uniqueText "0.1.0"^^xsd:string ;
-	] ;
-	.
-
-ops:SemanticVersionNumber
-	a owl:Class ;
-	rdfs:seeAlso "Based on semantic versioning as described here: https://semver.org/"^^xsd:string ;
-	rdfs:subclassOf [
-		a owl:Restriction ;
-		owl:onProperty ops:uniqueText ;
-		owl:someValuesFrom xsd:string ;
-	] ;
-	skos:definition "A number of the form N.N.N"^^xsd:string ;
-	skos:prefLabel "Semantic Version Number"^^xsd:string ;
 	.
 
 ops:equalTo
@@ -50,15 +34,6 @@ ops:greaterThan
 	rdfs:subPropertyOf ops:greaterOrEqualTo ;
 	skos:definition "Relates a specification to a value that a characteristic must be greater than."^^xsd:string ;
 	skos:prefLabel "greater than"^^xsd:string ;
-	.
-
-ops:hasVersionNumber
-	a owl:ObjectProperty ;
-	rdfs:domain rdfs:Resource ;
-	rdfs:seeAlso "https://semver.org/"^^xsd:anyURI ;
-	skos:definition "Relates a versioned artifact to its version number."^^xsd:string ;
-	skos:example "An ontology has the semantic version number: 11.1.3"^^xsd:string ;
-	skos:prefLabel "has version number"^^xsd:string ;
 	.
 
 ops:lessOrEqualTo
@@ -87,18 +62,6 @@ ops:targetValue
 	rdfs:subPropertyOf ops:specifiedValue ;
 	skos:definition "Relates a specification to an ideal value for a characteristic to have. This is used in conjunction with a variance expressed either as an absolute value, or as a percentage."^^xsd:string ;
 	skos:prefLabel "target value"^^xsd:string ;
-	.
-
-ops:uniqueText
-	a
-		owl:DatatypeProperty ,
-		owl:FunctionalProperty
-		;
-	rdfs:range xsd:string ;
-	skos:definition "The unique string value of some content object; i.e., there is no possibility of having more than one value."^^xsd:string ;
-	skos:example "The unique string for a semantic version number is '11.1.2'."^^xsd:string ;
-	skos:prefLabel "unique text"^^xsd:string ;
-	skos:scopeNote "This is identical in meaning to gist:uniqueText in the gist ontology: https://w3id.org/semanticarts/ontology/gistCore "^^xsd:string ;
 	.
 
 ops:varianceNumber
