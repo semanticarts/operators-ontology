@@ -13,6 +13,22 @@
 	skos:prefLabel "Operators"^^xsd:string ;
 	.
 
+skos:definition
+	a owl:AnnotationProperty ;
+	.
+
+skos:example
+	a owl:AnnotationProperty ;
+	.
+
+skos:prefLabel
+	a owl:AnnotationProperty ;
+	.
+
+skos:scopeNote
+	a owl:AnnotationProperty ;
+	.
+
 ops:equalTo
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf
