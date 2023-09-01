@@ -84,7 +84,7 @@ ops:targetValue
 ops:varianceNumber
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf ops:specifiedValue ;
-	skos:definition "Relates a specification to the absolute number around a target value that defines a range that the value a characteristic must be within."^^xsd:string ;
+	skos:definition "Relates a specification to an absolute variation around a target value. Together, the variance and the target value define an acceptable range for the value of a characteristic."^^xsd:string ;
 	skos:example "Target value 100 with .5 variance number implies a range of 99.5 to 100.5."^^xsd:string ;
 	skos:prefLabel "variance number"^^xsd:string ;
 	.
@@ -92,7 +92,7 @@ ops:varianceNumber
 ops:variancePercentage
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf ops:specifiedValue ;
-	skos:definition "Relates a specification to the percentage variation around a target value that defines a range that the value a characteristic must be within."^^xsd:string ;
+	skos:definition "Relates a specification to a percentage variation around a target value. Together, the variance and the target value define an acceptable range for the value of a characteristic."^^xsd:string ;
 	skos:example "Target value 100 with 5% variance implies a range of 95 to 105."^^xsd:string ;
 	skos:prefLabel "variance percentage"^^xsd:string ;
 	.
