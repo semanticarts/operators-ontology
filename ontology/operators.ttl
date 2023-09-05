@@ -9,8 +9,9 @@
 <https://w3id.org/semanticarts/ontology/operators>
 	a owl:Ontology ;
 	owl:versionIRI <https://w3id.org/semanticarts/ontology/operatorsX.x.x> ;
-	skos:definition "This ontology is designed for use with specifications whereby the value for some characteristic must be in some range. Operators provided include equal to, greater than (or equal to), less than (or equal to). Also included is the ability to specify a target value with an absolute or percent variance. Two common use cases for these operators are: version dependencies and product specifications. For example, one ontology might depend on the version number of another ontology being in a certain range. A product specification may require that the concentration of a toxin must be less than so many parts per billion or that the battery life is greater than so many hours."^^xsd:string ;
+	skos:definition "This ontology is designed for use with specifications whereby the value for some characteristic must be in some range. Operators provided include equal to, greater than (or equal to), less than (or equal to). Also included is the ability to specify a target value with an absolute or percent variance. Two common use cases for these operators are: version dependency specifications and product specifications. For example, one ontology might depend on the version number of another ontology being in a certain range. A product specification may require that the concentration of a toxin must be less than so many parts per billion or that the battery life is greater than so many hours."^^xsd:string ;
 	skos:prefLabel "Operators"^^xsd:string ;
+	skos:scopeNote "By design, this ontology has no classes. Ontologies that import and use this ontology will have classes for specifications of different sorts. The operators are used to create instances of those specification classes."^^xsd:string ;
 	.
 
 skos:definition
@@ -29,71 +30,71 @@ skos:scopeNote
 	a owl:AnnotationProperty ;
 	.
 
-ops:equalTo
+ops:hasSpecifiedValue
+	a owl:ObjectProperty ;
+	skos:definition "Relates a specification to a value that helps define an acceptable range for the value of a characteristic."^^xsd:string ;
+	skos:prefLabel "has specified value"^^xsd:string ;
+	skos:scopeNote "This is an abstract superproperty, not intended for use in triples."^^xsd:string ;
+	.
+
+ops:hasTargetValue
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf ops:hasSpecifiedValue ;
+	skos:definition "Relates a specification to an ideal value for a characteristic to have. This is used in conjunction with a variance expressed either as an absolute value, or as a percentage."^^xsd:string ;
+	skos:prefLabel "has target value"^^xsd:string ;
+	.
+
+ops:hasValueEqualTo
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf
 		ops:greaterOrEqualTo ,
 		ops:lessOrEqualTo
 		;
 	skos:definition "Relates a specification to a value that a characteristic must be equal to."^^xsd:string ;
-	skos:prefLabel "equal to"^^xsd:string ;
+	skos:prefLabel "has value equal to"^^xsd:string ;
 	.
 
-ops:greaterOrEqualTo
+ops:hasValueGreaterOrEqualTo
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf ops:specifiedValue ;
+	rdfs:subPropertyOf ops:hasSpecifiedValue ;
 	skos:definition "Relates a specification to a value that a characteristic must be greater than or equal to."^^xsd:string ;
-	skos:prefLabel "greater or equal to"^^xsd:string ;
+	skos:prefLabel "has value greater or equal to"^^xsd:string ;
 	.
 
-ops:greaterThan
+ops:hasValueGreaterThan
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf ops:greaterOrEqualTo ;
 	skos:definition "Relates a specification to a value that a characteristic must be greater than."^^xsd:string ;
-	skos:prefLabel "greater than"^^xsd:string ;
+	skos:prefLabel "has value greater than"^^xsd:string ;
 	.
 
-ops:lessOrEqualTo
+ops:hasValueLessOrEqualTo
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf ops:specifiedValue ;
+	rdfs:subPropertyOf ops:hasSpecifiedValue ;
 	skos:definition "Relates a specification to a value that a characteristic must be less than or equal to."^^xsd:string ;
-	skos:prefLabel "less or equal to"^^xsd:string ;
+	skos:prefLabel "has value less or equal to"^^xsd:string ;
 	.
 
-ops:lessThan
+ops:hasValueLessThan
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf ops:lessOrEqualTo ;
 	skos:definition "Relates a specification to a value that a characteristic must be less than."^^xsd:string ;
-	skos:prefLabel "less than"^^xsd:string ;
+	skos:prefLabel "has value less than"^^xsd:string ;
 	.
 
-ops:specifiedValue
+ops:hasVarianceNumber
 	a owl:ObjectProperty ;
-	skos:definition "Relates a specification to a value that helps define an acceptable range for the value of a characteristic."^^xsd:string ;
-	skos:prefLabel "specified value"^^xsd:string ;
-	skos:scopeNote "This is an abstract superproperty, not intended for use in triples."^^xsd:string ;
-	.
-
-ops:targetValue
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf ops:specifiedValue ;
-	skos:definition "Relates a specification to an ideal value for a characteristic to have. This is used in conjunction with a variance expressed either as an absolute value, or as a percentage."^^xsd:string ;
-	skos:prefLabel "target value"^^xsd:string ;
-	.
-
-ops:varianceNumber
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf ops:specifiedValue ;
+	rdfs:subPropertyOf ops:hasSpecifiedValue ;
 	skos:definition "Relates a specification to an absolute variation around a target value. Together, the variance and the target value define an acceptable range for the value of a characteristic."^^xsd:string ;
 	skos:example "Target value 100 with .5 variance number implies a range of 99.5 to 100.5."^^xsd:string ;
-	skos:prefLabel "variance number"^^xsd:string ;
+	skos:prefLabel "has variance number"^^xsd:string ;
 	.
 
-ops:variancePercentage
+ops:hasVariancePercentage
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf ops:specifiedValue ;
+	rdfs:subPropertyOf ops:hasSpecifiedValue ;
 	skos:definition "Relates a specification to a percentage variation around a target value. Together, the variance and the target value define an acceptable range for the value of a characteristic."^^xsd:string ;
 	skos:example "Target value 100 with 5% variance implies a range of 95 to 105."^^xsd:string ;
-	skos:prefLabel "variance percentage"^^xsd:string ;
+	skos:prefLabel "has variance percentage"^^xsd:string ;
 	.
 
