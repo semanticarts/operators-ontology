@@ -79,7 +79,7 @@ ops:hasValueGreaterOrEqualTo
 
 ops:hasValueGreaterThan
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf ops:greaterOrEqualTo ;
+	rdfs:subPropertyOf ops:hasValueGreaterOrEqualTo ;
 	skos:definition "Relates a specification to a value that a characteristic must be greater than."^^xsd:string ;
 	skos:prefLabel "has value greater than"^^xsd:string ;
 	.
