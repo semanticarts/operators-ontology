@@ -45,7 +45,7 @@ ex:SpecEntry
 			ex:Specification
 			[
 				a owl:Restriction ;
-				owl:onProperty ex:forAspect ;
+				owl:onProperty ex:isForAspect ;
 				owl:someValuesFrom ex:Aspect ;
 			]
 			[
@@ -84,19 +84,18 @@ ex:_Product_smartphone123
 
 ex:_SpecEntry_BatteryLife_GE_12_hrs
 	a ex:SpecEntry ;
-	ex:forAspect ex:_Aspect_BatteryLife ;
+	ex:isForAspect ex:_Aspect_BatteryLife ;
 	ops:hasValueGreaterOrEqualTo ex:_Magnitude_12_hrs ;
 	.
 
 ex:_SpecEntry_NumberOfButtons_EQ_4
 	a ex:SpecEntry ;
-	ex:forAspect ex:_Aspect_NumberOfButtons ;
+	ex:isForAspect ex:_Aspect_NumberOfButtons ;
 	ops:hasValueEqualTo ex:_Magnitude_4_count ;
 	.
 
 ex:_SpecEntry_Weight_LE_15_oz
 	a ex:SpecEntry ;
-	ex:forAspect ex:_Aspect_Weight ;
+	ex:isForAspect ex:_Aspect_Weight ;
 	ops:hasValueLessOrEqualTo ex:_Magnitude_15_oz ;
 	.
-
