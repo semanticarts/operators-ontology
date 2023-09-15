@@ -1,0 +1,101 @@
+@prefix ex: <http://example.com/examples/> .
+@prefix ops: <https://w3id.org/semanticarts/ns/ontology/operators/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ver: <https://w3id.org/semanticarts/ns/ontology/versioning/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Aspect
+	a owl:Class ;
+	skos:definition "A characteristic of something that can take on a value.  E.g., height, weight, battery life."^^xsd:string ;
+	skos:prefLabel "Aspect"^^xsd:string ;
+	.
+
+ex:Magnitude
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			[
+				a owl:Restriction ;
+				owl:onProperty ex:hasUnitOfMeasure ;
+				owl:someValuesFrom ex:UnitOfMeasure ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty ex:numericValue ;
+				owl:someValuesFrom xsd:double ;
+			]
+		) ;
+	] ;
+	skos:definition "A quantity expressed with a unit of measure and a number"^^xsd:string ;
+	skos:example "3 millimeters; 70 miles per hour; 110 degrees F"^^xsd:string ;
+	skos:prefLabel "Magnitude"^^xsd:string ;
+	.
+
+ex:SpecEntry
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			ex:Specification
+			[
+				a owl:Restriction ;
+				owl:onProperty ex:isForAspect ;
+				owl:someValuesFrom ex:Aspect ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty ops:hasSpecifiedValue ;
+				owl:someValuesFrom ex:Magnitude ;
+			]
+		) ;
+	] ;
+	skos:definition "Specifies values for a particular aspect indicating what it means to be in spec for that aspect. Often this will be what is required, allowed or promised, but it could also be used to specify what is not allowed.  The values will typically be numerical with some unit of measure specified."^^xsd:string ;
+	skos:prefLabel "Spec Entry"^^xsd:string ;
+	.
+
+ex:_Aspect_BatteryLife
+	a ex:Aspect ;
+	ex:isMeasuredInUnit ex:_UnitOfMeasure_second ;
+	.
+
+ex:_Aspect_NumberOfButtons
+	a ex:Aspect ;
+	ex:isMeasuredInUnit ex:_UnitOfMeasure_each ;
+	.
+
+ex:_Aspect_Weight
+	a ex:Aspect ;
+	ex:isMeasuredInUnit ex:_UnitOfMeasure_kilogram ;
+	.
+
+ex:_Product_smartphone123
+	ex:isSpecifiedBy
+		ex:_SpecEntry_BatteryLife_GE_12_hrs ,
+		ex:_SpecEntry_NumberOfButtons_EQ_4 ,
+		ex:_SpecEntry_Weight_LE_15_oz
+		;
+	.
+
+ex:_SpecEntry_BatteryLife_GE_12_hrs
+	a ex:SpecEntry ;
+	ex:isForAspect ex:_Aspect_BatteryLife ;
+	ops:hasValueGreaterOrEqualTo ex:_Magnitude_12_hrs ;
+	.
+
+ex:_SpecEntry_NumberOfButtons_EQ_4
+	a ex:SpecEntry ;
+	ex:isForAspect ex:_Aspect_NumberOfButtons ;
+	ops:hasValueEqualTo ex:_Magnitude_4_count ;
+	.
+
+ex:_SpecEntry_Weight_LE_15_oz
+	a ex:SpecEntry ;
+	ex:isForAspect ex:_Aspect_Weight ;
+	ops:hasValueLessOrEqualTo ex:_Magnitude_15_oz ;
+	.
