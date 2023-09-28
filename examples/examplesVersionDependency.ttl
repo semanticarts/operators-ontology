@@ -29,7 +29,7 @@
 				a ver:SemanticVersionNumber ;
 				ver:uniqueText "12.1.0"^^xsd:string ;
 			] ;
-			ver:hasValueLessThan [
+			ops:hasValueLessThan [
 				a ver:SemanticVersionNumber ;
 				ver:uniqueText "13.0.0"^^xsd:string ;
 			] ;
