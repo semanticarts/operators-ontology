@@ -11,17 +11,27 @@
 @prefix ver: <https://w3id.org/semanticarts/ns/ontology/versioning/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<https://ontologies.exco.com/exeoDiseases>
+	a owl:Ontology ;
+	skos:scopeNote "The version of this ontology does not meet the dependency requirement."^^xsd:string ; 
+	skos:prefLabel "Diseases"^^xsd:string ;
+	ver:hasVersionNumber [
+		a ver:SemanticVersionNumber ;
+		ver:uniqueText "3.0.2"^^xsd:string ;
+	] ;
+	.
+
 <https://taxonomies.exco.com/diseaseTaxonomy>
 	a owl:Ontology ;
 	owl:imports
 		<https://ontologies.exco.com/exeoDiseases> ,
-		<https://w3id.org/semanticarts/ontology/gistCore12.1.0> ,
+		<https://w3id.org/semanticarts/ontology/gistCore> ,
 		<https://w3id.org/semanticarts/ontology/operators> ,
 		<https://w3id.org/semanticarts/ontology/versioning>
 		;
 	skos:definition "A hierarchy of diseases."^^xsd:string ;
 	skos:prefLabel "Disease Taxonomy"^^xsd:string ;
-	skos:scopeNote "The semantic version number for the disease taxonomy is 6.3.0. This version depends on the version of the disease ontology being between 3.1.0 and 4.0.0. It also depends on the version of gist core being between 12.1.0 and 13.0.0."^^xsd:string ;
+	skos:scopeNote "The semantic version number for the disease taxonomy is 6.3.0. This version depends on the version of the imported disease ontology being at least 3.1.0 and less than 4.0.0. It also depends on the version of gist core being at least 12.1.0 and less than 13.0.0."^^xsd:string ;
 	ver:dependsOn
 		[
 			a ver:VersionRangeSpec ;
@@ -51,6 +61,15 @@
 	ver:hasVersionNumber [
 		a ver:SemanticVersionNumber ;
 		ver:uniqueText "6.3.0"^^xsd:string ;
+	] ;
+	.
+
+<https://w3id.org/semanticarts/ontology/gistCore>
+	a owl:Ontology ;
+	skos:prefLabel "gist"^^xsd:string ;
+	ver:hasVersionNumber [
+		a ver:SemanticVersionNumber ;
+		ver:uniqueText "12.2.0"^^xsd:string ;
 	] ;
 	.
 
