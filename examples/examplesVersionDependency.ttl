@@ -26,7 +26,7 @@
 	owl:imports
 		<https://ontologies.exco.com/exeoDiseases> ,
 		<https://w3id.org/semanticarts/ontology/gistCore> ,
-		<https://w3id.org/semanticarts/ontology/operators> ,
+		<https://w3id.org/semanticarts/ontology/operators1.0.0> ,
 		<https://w3id.org/semanticarts/ontology/versioning>
 		;
 	skos:definition "A hierarchy of diseases."^^xsd:string ;
